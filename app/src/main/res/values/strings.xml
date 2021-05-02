@@ -1,7 +1,13 @@
 <resources>
     <string name="app_name">Code Test</string>
-    <string name="action_settings">Settings</string>
     <string name="error_title">Error</string>
-    <string name="error_message">Something went wrong</string>
     <string name="ok">OK</string>
+    <string name="message_something_went_wrong">Something went wrong</string>
+    <string name="enter_location_name">Enter location name</string>
+    <string name="enter_temperature">Enter temperature</string>
+    <string name="add_location">Add Location</string>
+    <string name="select_weather">Select weather</string>
+    <string name="weather_status_error_message">Please select a weather condition</string>
+    <string name="required_field">Required field</string>
+    <string name="close_button">Close button</string>
 </resources>

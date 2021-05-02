@@ -1,13 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-        xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/pure_white">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/add_location_toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:padding="20dp">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/left_arrow"
+        app:title="@string/add_location"
+        app:titleTextColor="@color/pure_white" />
 
-    <EditText
-            android:id="@+id/city_name"
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_location_name_layout"
+        style="@style/InputEditTextLayoutStyle"
+        android:hint="@string/enter_location_name"
+        android:layout_marginTop="@dimen/add_location_name_layout_margin_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_location_toolbar">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_location_name_field"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:maxLength="50"
+            android:inputType="textPersonName"/>
 
-</LinearLayout>
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/add_location_status_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/add_location_status_layout_margin_top"
+        android:layout_marginStart="@dimen/add_location_status_layout_margin_start"
+        android:layout_marginEnd="@dimen/add_location_status_layout_margin_end"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_location_name_layout">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/select_weather"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/select_weather_label_text_size"/>
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/add_location_status_spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/primary_bottom_border_background"/>
+
+        <TextView
+            android:id="@+id/add_location_status_spinner_error_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/add_location_status_spinner_error_view_text_size"
+            android:textColor="@color/error_red"
+            android:visibility="gone"
+            android:text="@string/weather_status_error_message"/>
+
+    </LinearLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/add_location_temp_layout"
+        style="@style/InputEditTextLayoutStyle"
+        android:hint="@string/enter_temperature"
+        android:layout_marginTop="@dimen/add_location_temp_layout_margin_top"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_location_status_layout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/add_location_temperature_field"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:maxLength="3"
+            android:inputType="number"/>
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/add_location_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/add_location"
+        android:layout_marginStart="@dimen/add_location_button_margin_start"
+        android:layout_marginEnd="@dimen/add_location_button_margin_end"
+        android:layout_marginTop="@dimen/add_location_button_margin_top"
+        android:textColor="@color/pure_white"
+        android:background="@color/colorPrimary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/add_location_temp_layout"/>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:indeterminateTint="@color/colorPrimary"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

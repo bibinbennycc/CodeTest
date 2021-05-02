@@ -1,12 +1,12 @@
-package com.codetest.main.ui
+package com.codetest.feature.adapter
 
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import com.codetest.R
-import com.codetest.main.model.Location
-import com.codetest.main.model.Status
+import com.codetest.feature.model.Location
+import com.codetest.feature.model.Status
 import kotlinx.android.synthetic.main.location.view.*
 
 
@@ -20,11 +20,12 @@ class LocationViewHolder private constructor(itemView: View) : RecyclerView.View
         }
     }
 
-    fun setup(location: Location) {
+    fun setup(location: Location, listener: LocationListAdapter.LocationListListener) {
         itemView.card.setCardBackgroundColor(getColor(location.status))
         itemView.name.text = location.name
         val weather = location.temperature + "°C " + String(Character.toChars(location.status.value))
         itemView.weatherInfo.text = weather
+        itemView.close_button.setOnClickListener { listener.onItemDeleteClicked(location) }
     }
 
     private fun getColor(status: Status): Int {

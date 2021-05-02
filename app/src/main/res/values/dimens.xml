@@ -1,3 +1,28 @@
 <resources>
-    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="weather_status_list_padding">20dp</dimen>
+    <dimen name="add_button_padding_start">16dp</dimen>
+    <dimen name="add_button_padding_end">16dp</dimen>
+    <dimen name="add_button_margin_bottom">16dp</dimen>
+    <dimen name="add_location_name_layout_margin_top">24dp</dimen>
+    <dimen name="add_location_status_layout_margin_top">16dp</dimen>
+    <dimen name="add_location_status_layout_margin_start">16dp</dimen>
+    <dimen name="add_location_status_layout_margin_end">16dp</dimen>
+    <dimen name="select_weather_label_text_size">12sp</dimen>
+    <dimen name="add_location_status_spinner_error_view_text_size">12sp</dimen>
+    <dimen name="add_location_temp_layout_margin_top">16dp</dimen>
+    <dimen name="add_location_button_margin_top">24dp</dimen>
+    <dimen name="add_location_button_margin_end">16dp</dimen>
+    <dimen name="add_location_button_margin_start">16dp</dimen>
+    <dimen name="card_margin_bottom">20dp</dimen>
+    <dimen name="card_corner_radius">8dp</dimen>
+    <dimen name="card_card_elevation">0dp</dimen>
+    <dimen name="card_stroke_width">2dp</dimen>
+    <dimen name="list_layout_padding">20dp</dimen>
+    <dimen name="name_text_size">20sp</dimen>
+    <dimen name="weather_info_text_size">24sp</dimen>
+    <dimen name="weather_info_margin_end">16dp</dimen>
+    <dimen name="close_button_card_corner_radius">14dp</dimen>
+    <dimen name="close_button_card_elevation">8dp</dimen>
+    <dimen name="close_button_icon_width">28dp</dimen>
+    <dimen name="close_button_icon_height">28dp</dimen>
 </resources>
