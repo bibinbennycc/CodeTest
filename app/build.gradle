@@ -74,16 +74,13 @@ dependencies {
     implementation "androidx.room:room-ktx:$roomVersion"
     kapt "androidx.room:room-compiler:$roomVersion"
 
-    //Test
-    def junitExtVersion = "1.1.2"
-    androidTestImplementation "androidx.test.ext:junit:$junitExtVersion"
-
-    def mockitoCoreVersion = "3.9.0"
-    androidTestImplementation "org.mockito:mockito-core:$mockitoCoreVersion"
-
-    def archCoreTest = "2.1.0"
-    androidTestImplementation "androidx.arch.core:core-testing:$archCoreTest"
-
-    def coroutinesTest = "1.3.4"
-    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutinesTest"
+    // Instrumented Unit Tests
+    androidTestImplementation "junit:junit:4.13"
+    androidTestImplementation "com.linkedin.dexmaker:dexmaker-mockito:2.12.1"
+    androidTestImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:1.2.1"
+    androidTestImplementation "androidx.arch.core:core-testing:2.1.0"
+    androidTestImplementation "com.google.truth:truth:1.0.1"
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    androidTestImplementation "org.mockito:mockito-core:2.21.0"
 }

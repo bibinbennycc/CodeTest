@@ -11,11 +11,9 @@ import com.codetest.R
 import com.codetest.common.Status
 import com.codetest.feature.adapter.LocationListAdapter
 import com.codetest.feature.base.BaseActivity
-import com.codetest.feature.viewmodel.MainViewModel
 import com.codetest.feature.model.Location
+import com.codetest.feature.viewmodel.MainViewModel
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.activity_main.add_location_button
-import kotlinx.android.synthetic.main.activity_main.progressBar
 import javax.inject.Inject
 
 
@@ -25,7 +23,7 @@ class WeatherForecastActivity : BaseActivity() {
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var viewModel: MainViewModel
-    private lateinit var adapter : LocationListAdapter
+    private lateinit var adapter: LocationListAdapter
 
     override fun getLayoutId(): Int = R.layout.activity_main
 
@@ -35,6 +33,11 @@ class WeatherForecastActivity : BaseActivity() {
         setLocationList()
         setupObservers()
         setAddLocationButton()
+        getLocationsList()
+    }
+
+    private fun getLocationsList() {
+        enableListView(false)
         viewModel.getLocations()
     }
 
@@ -50,9 +53,9 @@ class WeatherForecastActivity : BaseActivity() {
     }
 
     private fun setLocationList() {
-        adapter = LocationListAdapter(arrayListOf(), object: LocationListAdapter.LocationListListener{
+        adapter = LocationListAdapter(arrayListOf(), object : LocationListAdapter.LocationListListener {
             override fun onItemDeleteClicked(location: Location) {
-                    deleteLocation(location)
+                deleteLocation(location)
             }
         })
         recyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
@@ -65,7 +68,7 @@ class WeatherForecastActivity : BaseActivity() {
                 when (resource.status) {
                     Status.SUCCESS -> {
                         progressBar.visibility = View.GONE
-                        adapter.removeItem(location )
+                        adapter.removeItem(location)
                     }
                     Status.ERROR -> {
                         progressBar.visibility = View.GONE
@@ -83,7 +86,7 @@ class WeatherForecastActivity : BaseActivity() {
         viewModel.locationResponse.observe(this, Observer {
             it?.let { resource ->
                 when (resource.status) {
-                   Status.SUCCESS -> {
+                    Status.SUCCESS -> {
                         enableListView(true)
                         resource.data?.let { data -> retrieveList(data.locations) }
                     }
@@ -117,10 +120,10 @@ class WeatherForecastActivity : BaseActivity() {
 
     private fun showError(message: String?) {
         AlertDialog.Builder(this)
-            .setTitle(resources.getString(R.string.error_title))
-            .setMessage(message ?: getString(R.string.message_something_went_wrong))
-            .setPositiveButton(resources.getString(R.string.ok)) { _, _ -> }
+                .setTitle(resources.getString(R.string.error_title))
+                .setMessage(message ?: getString(R.string.message_something_went_wrong))
+                .setPositiveButton(resources.getString(R.string.ok)) { _, _ -> }
                 .create()
-            .show()
+                .show()
     }
 }
